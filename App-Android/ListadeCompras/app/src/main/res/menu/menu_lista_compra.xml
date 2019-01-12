@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:context="br.com.listadecompras.listadecompras.CadastroListaActivity">
+    <item
+        android:id="@+id/menu_formulario_produtos"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="Produtos"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/menu_formulario_ajuda"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="Ajuda"
+        app:showAsAction="withText" />
+</menu>
