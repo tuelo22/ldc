@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#252121</color>
+    <color name="colorPrimaryDark">#616161</color>
+    <color name="colorAccent">#ff4081</color>
+    <color name="bkg_splash">#F0C200</color>
+    <color name="vermelho">#f26769</color>
+    <color name="branco">#FFFFFF</color>
+</resources>
