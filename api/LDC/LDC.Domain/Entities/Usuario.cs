@@ -9,9 +9,7 @@ using System.Collections.Generic;
 namespace LDC.Domain.Entities
 {
     public class Usuario : EntityBase
-    {
-        public string IMEI { get; private set; }
-  
+    {  
         public Nome Nome { get; private set; }
 
         public string Senha { get; private set; }
@@ -40,12 +38,11 @@ namespace LDC.Domain.Entities
             }
         }
 
-        public Usuario(Nome nome, Email email, string senha, string imei)
+        public Usuario(Nome nome, Email email, string senha)
         {
             Nome = nome;
             Email = email;
             Senha = senha;
-            IMEI = imei;
             Ativo = true;
 
             Valida();
@@ -56,11 +53,10 @@ namespace LDC.Domain.Entities
             }
         }
 
-        public void Alterar(Nome nome, Email email, string imei)
+        public void Alterar(Nome nome, Email email)
         {
             this.Nome = nome;
             this.Email = email;
-            this.IMEI = imei;
 
             Valida();
         }

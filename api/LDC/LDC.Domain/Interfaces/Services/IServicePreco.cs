@@ -1,10 +1,19 @@
-﻿using LDC.Domain.Entities;
-using LDC.Domain.Interfaces.Repositories.Base;
+﻿using LDC.Domain.Arguments.Base;
+using LDC.Domain.Arguments.Preco;
+using LDC.Domain.Interfaces.Services.Base;
 using System;
+using System.Collections.Generic;
 
 namespace LDC.Domain.Interfaces.Repositories
 {
-    public interface IRepositoryPreco : IRepositoryBase<Preco, Guid>
+    public interface IServicePreco : IServiceBase
     {
+        AdicionarPrecoResponse Adicionar(AdicionarPrecoRequest request);
+
+        ResponseBase Alterar(AlterarPrecoRequest request);
+
+        IEnumerable<PrecoResponse> Listar();
+
+        ResponseBase Desativar(Guid Id);
     }
 }
