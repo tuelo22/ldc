@@ -106,14 +106,26 @@
     <Compile Include="Arguments\Estabelecimento\AdicionarEstabelecimentoRequest.cs" />
     <Compile Include="Arguments\Estabelecimento\AdicionarEstabelecimentoResponse.cs" />
     <Compile Include="Arguments\Estabelecimento\AlterarEstabelecimentoRequest.cs" />
+    <Compile Include="Arguments\Estabelecimento\EstabelecimentoRequest.cs" />
     <Compile Include="Arguments\Estabelecimento\EstabelecimentoResponse.cs" />
     <Compile Include="Arguments\Item\AdicionarItemRequest.cs" />
     <Compile Include="Arguments\Item\AdicionarItemResponse.cs" />
     <Compile Include="Arguments\Item\AlterarItemRequest.cs" />
+    <Compile Include="Arguments\Item\ItemRequest.cs" />
     <Compile Include="Arguments\Item\ItemResponse.cs" />
+    <Compile Include="Arguments\Lista\ListaRequest.cs" />
+    <Compile Include="Arguments\Lista\AdicionarListaRequest.cs" />
+    <Compile Include="Arguments\Lista\AdicionarListaResponse.cs" />
+    <Compile Include="Arguments\Lista\AlterarListaRequest.cs" />
+    <Compile Include="Arguments\Lista\ListaResponse.cs" />
+    <Compile Include="Arguments\Preco\AdicionarPrecoRequest.cs" />
+    <Compile Include="Arguments\Preco\AdicionarPrecoResponse.cs" />
+    <Compile Include="Arguments\Preco\AlterarPrecoRequest.cs" />
+    <Compile Include="Arguments\Preco\PrecoResponse.cs" />
     <Compile Include="Arguments\Produto\AdicionarProdutoRequest.cs" />
     <Compile Include="Arguments\Produto\AdicionarProdutoResponse.cs" />
     <Compile Include="Arguments\Produto\AlterarProdutoRequest.cs" />
+    <Compile Include="Arguments\Produto\ProdutoRequest.cs" />
     <Compile Include="Arguments\Produto\ProdutoResponse.cs" />
     <Compile Include="Arguments\Unidade\AdicionarUnidadeRequest.cs" />
     <Compile Include="Arguments\Unidade\AdicionarUnidadeResponse.cs" />
@@ -164,6 +176,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Message.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\ServiceCategoria.cs" />
+    <Compile Include="Services\ServiceUnidade.cs" />
+    <Compile Include="Services\ServiceUsuario.cs" />
     <Compile Include="ValueObjects\Email.cs" />
     <Compile Include="ValueObjects\Endereco.cs" />
     <Compile Include="ValueObjects\Nome.cs" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using LDC.Domain.Entities;
 
 namespace LDC.Domain.Arguments.Unidade
 {
@@ -8,7 +9,7 @@ namespace LDC.Domain.Arguments.Unidade
 
         public string Message { get; set; }
 
-        public static explicit operator AdicionarUnidadeResponse(Entities.Estabelecimento entidade)
+        public static explicit operator AdicionarUnidadeResponse(Entities.Unidade entidade)
         {
             return new AdicionarUnidadeResponse()
             {

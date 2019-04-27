@@ -16,8 +16,6 @@ namespace LDC.Domain.Entities
 
         public Email Email { get; private set; }
 
-        public bool Ativo { get; private set; }
-
         public List<Lista> Listas { get; private set; }
 
         protected Usuario()
@@ -61,9 +59,9 @@ namespace LDC.Domain.Entities
             Valida();
         }
 
-        public void Inativar()
+        public override void Inativar()
         {
-            Ativo = false;
+            base.Inativar();          
 
             Nome.Desativar();
         }

@@ -13,7 +13,14 @@ namespace LDC.Domain.Entities.Base
 
         public Guid Id { get; private set; }
 
+        public bool Ativo { get; private set; }
+
         protected abstract void Valida();
+
+        public virtual void Inativar()
+        {
+            Ativo = false;
+        }
 
     }
 }

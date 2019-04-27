@@ -1,5 +1,6 @@
 ﻿using LDC.Domain.Arguments.Base;
 using LDC.Domain.Arguments.Categoria;
+using LDC.Domain.Arguments.Usuario;
 using LDC.Domain.Interfaces.Services.Base;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,8 @@ namespace LDC.Domain.Interfaces.Repositories
 
         ResponseBase Alterar(AlterarCategoriaRequest request);
 
-        IEnumerable<CategoriaResponse> Listar();
+        IEnumerable<CategoriaResponse> Listar(UsuarioRequest request);
 
-        ResponseBase Desativar(Guid Id);
+        ResponseBase Desativar(Guid Id, UsuarioRequest request);
     }
 }

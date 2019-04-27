@@ -9,7 +9,6 @@ namespace LDC.Domain.Arguments.Usuario
         public string PrimeiroNome { get; set; }
         public string UltimoNome { get; set; }
         public string NomeCompleto { get; set; }
-        public string IMEI { get; set; }
 
         public static explicit operator UsuarioResponse(Entities.Usuario entidade)
         {
@@ -19,8 +18,7 @@ namespace LDC.Domain.Arguments.Usuario
                 PrimeiroNome = entidade.Nome.PrimeiroNome,
                 UltimoNome = entidade.Nome.UltimoNome,
                 Id = entidade.Id,
-                NomeCompleto = entidade.Nome.PrimeiroNome + " " + entidade.Nome.UltimoNome,
-                IMEI = entidade.IMEI
+                NomeCompleto = entidade.Nome.PrimeiroNome + " " + entidade.Nome.UltimoNome
             };
         }
     }

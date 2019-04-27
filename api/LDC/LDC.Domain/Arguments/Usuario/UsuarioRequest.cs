@@ -9,6 +9,5 @@ namespace LDC.Domain.Arguments.Usuario
         public string PrimeiroNome { get; set; }
         public string UltimoNome { get; set; }
         public string NomeCompleto { get; set; }
-        public string IMEI { get; set; }
     }
 }
