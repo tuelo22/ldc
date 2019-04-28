@@ -2,6 +2,8 @@
 using LDC.Domain.Resources;
 using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
+using System;
+using System.Collections.Generic;
 
 namespace LDC.Domain.Entities
 {
@@ -11,17 +13,23 @@ namespace LDC.Domain.Entities
 
         public bool Padrao { get; private set; }
 
-        public Usuario Usuario { get; private set; }
-
         public string Cor { get; private set; }
+
+        public Guid UsuarioId { get; private set; }
+
+        public virtual Usuario Usuario { get; private set; }
+
+        public virtual ICollection<Produto> Produtos { get; set; }
 
         protected Categoria()
         {
-
+            Produtos = new List<Produto>();
         }
 
         public Categoria( string nome, Usuario usuario, string cor)
         {
+            this.Produtos = new List<Produto>();
+        
             this.Nome = nome;
             this.Usuario = usuario;
             this.Padrao = false;
@@ -39,6 +47,11 @@ namespace LDC.Domain.Entities
 
             if (Usuario != null) {
                 AddNotifications(Usuario);
+            }
+
+            if (IsValid())
+            {
+                this.UsuarioId = Usuario.Id;
             }
         }
 

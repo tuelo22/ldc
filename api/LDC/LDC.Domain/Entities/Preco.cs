@@ -2,18 +2,25 @@
 using LDC.Domain.Resources;
 using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
+using System;
 
 namespace LDC.Domain.Entities
 {
     public class Preco : EntityBase
     {
-        public Estabelecimento Estabelecimento { get; set; }
-
         public double Valor { get; set; }
 
-        public Usuario Usuario { get; set; }
+        public Guid EstabelecimentoId { get; private set; }
 
-        public Item Item { get; set; }
+        public virtual Estabelecimento Estabelecimento { get; private set; }
+
+        public Guid UsuarioId { get; private set; }
+
+        public virtual Usuario Usuario { get; private set; }
+
+        public Guid ItemId { get; private set; }
+
+        public virtual Item Item { get; private set; }
 
         protected Preco()
         {
@@ -66,6 +73,13 @@ namespace LDC.Domain.Entities
             if (Item != null)
             {
                 AddNotifications(Item);
+            }
+
+            if (IsValid())
+            {
+                this.EstabelecimentoId = Estabelecimento.Id;
+                this.UsuarioId = Usuario.Id;
+                this.ItemId = Item.Id;
             }
         }
     }

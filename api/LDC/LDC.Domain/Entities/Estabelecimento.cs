@@ -3,6 +3,8 @@ using LDC.Domain.Resources;
 using LDC.Domain.ValueObjects;
 using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
+using System;
+using System.Collections.Generic;
 
 namespace LDC.Domain.Entities
 {
@@ -18,11 +20,15 @@ namespace LDC.Domain.Entities
 
         public bool Padrao { get; private set; }
 
-        public Usuario Usuario { get; private set; }
+        public Guid UsuarioId { get; private set; }
+
+        public virtual Usuario Usuario { get; private set; }
+
+        public virtual ICollection<Preco> Precos { get; private set; }
 
         protected Estabelecimento()
         {
-
+            Precos = new List<Preco>();
         }
 
         public void Alterar(string nome, Endereco endereco, string longitude, string latitude, Usuario usuario)
@@ -43,6 +49,7 @@ namespace LDC.Domain.Entities
 
         public Estabelecimento(string nome, Endereco endereco, string longitude, string latitude, Usuario usuario)
         {
+            this.Precos = new List<Preco>();
             this.Usuario = usuario;
             this.Nome = nome;
             this.Endereco = endereco;
@@ -51,7 +58,6 @@ namespace LDC.Domain.Entities
             this.Padrao = false;
 
             Valida();
-
         }
 
         protected override void Valida()
@@ -68,6 +74,11 @@ namespace LDC.Domain.Entities
             if (Endereco != null)
             {
                 AddNotifications(Endereco);
+            }
+
+            if (IsValid())
+            {
+                this.UsuarioId = Usuario.Id;
             }
         }
     }

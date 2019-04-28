@@ -9,6 +9,7 @@ namespace LDC.Domain.Entities.Base
         protected EntityBase()
         {
             Id = Guid.NewGuid();
+            Ativo = true;
         }
 
         public Guid Id { get; private set; }

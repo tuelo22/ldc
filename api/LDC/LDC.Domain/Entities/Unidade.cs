@@ -2,6 +2,8 @@
 using LDC.Domain.Resources;
 using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
+using System;
+using System.Collections.Generic;
 
 namespace LDC.Domain.Entities
 {
@@ -15,11 +17,15 @@ namespace LDC.Domain.Entities
 
         public bool Padrao { get; private set; }
 
-        public Usuario Usuario { get; private set; }
+        public Guid UsuarioId { get; private set; }
+
+        public virtual Usuario Usuario { get; private set; }
+
+        public virtual ICollection<Produto> Produtos { get; set; }
 
         protected Unidade()
         {
-
+            Produtos = new List<Produto>();
         }
 
         protected override void Valida()
@@ -29,10 +35,17 @@ namespace LDC.Domain.Entities
                 .IfNullOrInvalidLength(x => x.Nome, 1, 30, Message.X0_OBRIGATORIO_E_DEVE_CONTER_ENTRE_X1_E_X2_CARACTERES.ToFormat("Nome", "1", "30"))
                 .IfGreaterThan(x => x.CasasDecimais, 5, Message.A_X0_DEVE_SER_MENOR_OU_IGUAL_A_X1.ToFormat("Casas Decimais", "5 0,00000"))
                 .IfNull(x => x.Usuario, Message.OBJETO_X0_E_OBRIGATORIO.ToFormat("Usuario"));
+
+
+            if (IsValid())
+            {
+                this.UsuarioId = Usuario.Id;
+            }
         }
 
         public Unidade(string nome, string sigla, int casasdecimais, Usuario usuario)
         {
+            this.Produtos = new List<Produto>();
             this.Nome = nome;
             this.Sigla = sigla;
             this.CasasDecimais = casasdecimais;

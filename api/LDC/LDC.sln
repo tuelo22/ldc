@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LDC.Domain", "LDC.Domain\LDC.Domain.csproj", "{59656D59-7B7E-42A9-B6C2-8247329AEB8E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LDC.Infra", "LDC.IoC\LDC.Infra.csproj", "{27E3F775-EE67-41B3-8B74-5915564C7813}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{59656D59-7B7E-42A9-B6C2-8247329AEB8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59656D59-7B7E-42A9-B6C2-8247329AEB8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59656D59-7B7E-42A9-B6C2-8247329AEB8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27E3F775-EE67-41B3-8B74-5915564C7813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27E3F775-EE67-41B3-8B74-5915564C7813}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27E3F775-EE67-41B3-8B74-5915564C7813}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27E3F775-EE67-41B3-8B74-5915564C7813}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

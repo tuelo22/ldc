@@ -2,41 +2,47 @@
 using LDC.Domain.Resources;
 using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
+using System;
 using System.Collections.Generic;
 
 namespace LDC.Domain.Entities
 {
     public class Item : EntityBase
     {
-        public Lista Lista { get; private set; }
-
-        public Produto Produto { get; private set; }
-
         public bool Pendente { get; private set; }
 
-        public bool Ativo { get; private set; }
+        public Guid ListaId { get; private set; }
 
-        public Usuario Usuario { get; private set; }
+        public virtual Lista Lista { get; private set; }
 
-        public List<Preco> Precos { get; private set; }
+        public Guid ProdutoId { get; private set; }
+
+        public virtual Produto Produto { get; private set; }
+
+        public Guid UsuarioId { get; private set; }
+
+        public virtual Usuario Usuario { get; private set; }
+
+        public virtual ICollection<Preco> Precos { get; private set; }
 
         protected Item()
         {
-
+            Precos = new List<Preco>();
         }
 
         public Item(Produto produto, Usuario usuario, Lista lista)
         {
+            Precos = new List<Preco>();
+
             this.Produto = produto;
             this.Pendente = true;
-            this.Ativo = true;
             this.Usuario = usuario;
             this.Lista = lista;
 
             Valida();
         }
 
-        public void Alterar(Produto produto, Usuario usuario, bool ativo, bool pendente, Lista lista)
+        public void Alterar(Produto produto, Usuario usuario, bool pendente, Lista lista)
         {
             if (usuario != null && !lista.PermiteOutrosEditarem)
             {
@@ -45,7 +51,6 @@ namespace LDC.Domain.Entities
 
             this.Produto = produto;
             this.Pendente = pendente;
-            this.Ativo = ativo;
             this.Usuario = usuario;
 
             Valida();
@@ -62,7 +67,13 @@ namespace LDC.Domain.Entities
             {
                 AddNotifications(Usuario);
             }
-        }
 
+            if (IsValid())
+            {
+                this.ListaId = Lista.Id;
+                this.ProdutoId = Produto.Id;
+                this.UsuarioId = Usuario.Id;
+            }
+        }
     }
 }

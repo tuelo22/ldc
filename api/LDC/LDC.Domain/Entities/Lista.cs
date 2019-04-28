@@ -16,23 +16,32 @@ namespace LDC.Domain.Entities
 
         public EnumOrdenacao Ordenacao { get; private set; }
 
-        public Usuario Usuario { get; private set; }
-
-        public List<Item> Items { get; private set; }
-
         public bool Compartilhada { get; private set; }
 
         public bool PermiteOutrosEditarem { get; private set; }
 
         public bool Publica { get; private set; }
 
+        public Guid UsuarioId { get; private set; }
+
+        public virtual Usuario Usuario { get; private set; }
+
+        public virtual ICollection<Item> Items { get; private set; }
+
+        public virtual ICollection<Usuario> Usuarios { get; private set; }
+
         protected Lista()
         {
-
+            Items = new List<Item>();
         }
 
         public Lista(DateTime criacao, string nome, Usuario usuario, List<Item> items, bool publica)
         {
+            this.Items = new List<Item>();
+            this.Usuarios = new List<Usuario>();
+
+            this.Usuarios.Add(usuario);
+
             this.Criacao = criacao;
             this.Nome = nome;
             this.Ordenacao = EnumOrdenacao.Criacao;
@@ -52,6 +61,11 @@ namespace LDC.Domain.Entities
                 .IfNull(x => x.Criacao, Message.X0_E_OBRIGATORIA.ToFormat("Data de Criação"))
                 .IfNull(x => x.Usuario, Message.OBJETO_X0_E_OBRIGATORIO.ToFormat("Usuario"))
                 .IfNull(x => x.Items, Message.OBJETO_X0_E_OBRIGATORIO.ToFormat("Items"));
+
+            if (IsValid())
+            {
+                this.UsuarioId = Usuario.Id;
+            }
         }
 
         public void Alterar(DateTime criacao, string nome, Usuario usuario, List<Item> items, bool publica, bool compartilhada, bool permiteOutrosEditarem)

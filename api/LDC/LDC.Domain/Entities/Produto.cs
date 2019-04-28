@@ -2,6 +2,7 @@
 using LDC.Domain.Resources;
 using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
+using System;
 
 namespace LDC.Domain.Entities
 {
@@ -9,13 +10,19 @@ namespace LDC.Domain.Entities
     {
         public string Nome { get; private set; }
 
-        public Unidade Unidade { get; private set; }
-
-        public Categoria Categoria { get; private set; }
-
-        public Usuario Usuario { get; private set; }
-
         public bool Padrao { get; private set; }
+
+        public Guid UnidadeId { get; private set; }
+
+        public virtual Unidade Unidade { get; private set; }
+
+        public Guid CategoriaId { get; private set; }
+
+        public virtual Categoria Categoria { get; private set; }
+
+        public Guid UsuarioId { get; private set; }
+
+        public virtual Usuario Usuario { get; private set; }
 
         protected Produto()
         {
@@ -70,6 +77,13 @@ namespace LDC.Domain.Entities
             if (Categoria != null)
             {
                 AddNotifications(Categoria);
+            }
+
+            if (IsValid())
+            {
+                this.UsuarioId = Usuario.Id;
+                this.CategoriaId = Categoria.Id;
+                this.UnidadeId = Unidade.Id;
             }
         }
     }
