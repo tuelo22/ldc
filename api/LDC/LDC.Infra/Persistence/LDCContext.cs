@@ -1,9 +1,11 @@
 ﻿using LDC.Domain.Entities;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using MySql.Data.Entity;
 
-namespace LDC.IoC.Persistence
+namespace LDC.Infra.Persistence
 {
+    [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class LDCContext : DbContext
     {
         public LDCContext() : base("LDC")

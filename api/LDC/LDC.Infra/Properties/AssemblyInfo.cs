@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // As informações gerais sobre um assembly são controladas por
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associada a um assembly.
-[assembly: AssemblyTitle("LDC.IoC")]
+[assembly: AssemblyTitle("LDC.Infra")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LDC.IoC")]
+[assembly: AssemblyProduct("LDC.Infra")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // O GUID a seguir será destinado à ID de typelib se este projeto for exposto para COM
-[assembly: Guid("b14538e4-cdf2-4464-9050-3c92d736e8d9")]
+[assembly: Guid("27e3f775-ee67-41b3-8b74-5915564c7813")]
 
 // As informações da versão de um assembly consistem nos quatro valores a seguir:
 //

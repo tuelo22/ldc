@@ -1,4 +1,4 @@
-﻿namespace LDC.IoC.Transactions
+﻿namespace LDC.Infra.Transactions
 {
     public interface IUnitOfWork
     {

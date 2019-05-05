@@ -1,7 +1,7 @@
 ﻿using LDC.Domain.Entities;
 using System.Data.Entity.ModelConfiguration;
 
-namespace LDC.IoC.Persistence.Map
+namespace LDC.Infra.Persistence.Map
 {
     public class MapCategoria : EntityTypeConfiguration<Categoria>
     {

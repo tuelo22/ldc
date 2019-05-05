@@ -24,7 +24,7 @@ namespace LDC.Domain.Entities
 
         public Guid UsuarioId { get; private set; }
 
-        public virtual Usuario Usuario { get; private set; }
+        public virtual Usuario Proprietario { get; private set; }
 
         public virtual ICollection<Item> Items { get; private set; }
 
@@ -45,7 +45,7 @@ namespace LDC.Domain.Entities
             this.Criacao = criacao;
             this.Nome = nome;
             this.Ordenacao = EnumOrdenacao.Criacao;
-            this.Usuario = usuario;
+            this.Proprietario = usuario;
             this.Items = items;
             this.Compartilhada = false;
             this.PermiteOutrosEditarem = false;

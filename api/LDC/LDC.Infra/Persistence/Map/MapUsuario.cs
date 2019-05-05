@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 
-namespace LDC.IoC.Persistence.Map
+namespace LDC.Infra.Persistence.Map
 {
     public class MapUsuario : EntityTypeConfiguration<Usuario>
     {
@@ -27,9 +27,6 @@ namespace LDC.IoC.Persistence.Map
             HasMany(p => p.Items).WithOptional(p => p.Usuario);
 
             HasMany(p => p.Listas).WithMany(x => x.Usuarios).Map(x => x.ToTable("UsuarioLista"));
-
         }
-
-
     }
 }

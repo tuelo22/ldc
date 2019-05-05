@@ -1,9 +1,7 @@
 ﻿using LDC.Domain.Entities;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 
-namespace LDC.IoC.Persistence.Map
+namespace LDC.Infra.Persistence.Map
 {
     public class MapEstabelecimento : EntityTypeConfiguration<Estabelecimento>
     {

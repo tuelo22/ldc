@@ -1,6 +1,6 @@
-﻿using LDC.IoC.Persistence;
+﻿using LDC.Infra.Persistence;
 
-namespace LDC.IoC.Transactions
+namespace LDC.Infra.Transactions
 {
     public class UnitOfWork : IUnitOfWork
     {
