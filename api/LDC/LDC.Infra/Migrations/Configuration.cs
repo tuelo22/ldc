@@ -5,14 +5,14 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<LDC.IoC.Persistence.LDCContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<LDC.Infra.Persistence.LDCContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(LDC.IoC.Persistence.LDCContext context)
+        protected override void Seed(LDC.Infra.Persistence.LDCContext context)
         {
             //  This method will be called after migrating to the latest version.
 

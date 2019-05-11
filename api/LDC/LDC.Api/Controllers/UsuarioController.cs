@@ -1,6 +1,6 @@
 ﻿using LDC.Api.Controllers.Base;
 using LDC.Domain.Arguments.Usuario;
-using LDC.Domain.Interfaces.Repositories;
+using LDC.Domain.Interfaces.Services;
 using LDC.Infra.Transactions;
 using System;
 using System.Net.Http;

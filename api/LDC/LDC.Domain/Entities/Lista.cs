@@ -59,26 +59,26 @@ namespace LDC.Domain.Entities
             new AddNotifications<Lista>(this)
                 .IfNullOrInvalidLength(x => x.Nome, 1, 50, Message.X0_OBRIGATORIO_E_DEVE_CONTER_ENTRE_X1_E_X2_CARACTERES.ToFormat("Nome", "1", "50"))
                 .IfNull(x => x.Criacao, Message.X0_E_OBRIGATORIA.ToFormat("Data de Criação"))
-                .IfNull(x => x.Usuario, Message.OBJETO_X0_E_OBRIGATORIO.ToFormat("Usuario"))
+                .IfNull(x => x.Proprietario, Message.OBJETO_X0_E_OBRIGATORIO.ToFormat("Usuario"))
                 .IfNull(x => x.Items, Message.OBJETO_X0_E_OBRIGATORIO.ToFormat("Items"));
 
             if (IsValid())
             {
-                this.UsuarioId = Usuario.Id;
+                this.UsuarioId = Proprietario.Id;
             }
         }
 
-        public void Alterar(DateTime criacao, string nome, Usuario usuario, List<Item> items, bool publica, bool compartilhada, bool permiteOutrosEditarem)
+        public void Alterar(DateTime criacao, string nome, Usuario proprietario, List<Item> items, bool publica, bool compartilhada, bool permiteOutrosEditarem)
         {
-            if (usuario != null)
+            if (proprietario != null)
             {
-                new AddNotifications<Lista>(this).IfFalse(Usuario.Id.Equals(usuario.Id) || (compartilhada && permiteOutrosEditarem), Message.NAO_E_POSSIVEL_EDITAR_PERTENCE_OUTRO_USUARIO.ToFormat(nome));
+                new AddNotifications<Lista>(this).IfFalse(Proprietario.Id.Equals(proprietario.Id) || (compartilhada && permiteOutrosEditarem), Message.NAO_E_POSSIVEL_EDITAR_PERTENCE_OUTRO_USUARIO.ToFormat(nome));
             }
 
             this.Criacao = criacao;
             this.Nome = nome;
             this.Ordenacao = EnumOrdenacao.Criacao;
-            this.Usuario = usuario;
+            this.Proprietario = proprietario;
             this.Items = items;
             this.Compartilhada = compartilhada;
             this.PermiteOutrosEditarem = permiteOutrosEditarem;

@@ -2,6 +2,7 @@
 using LDC.Domain.Arguments.Usuario;
 using LDC.Domain.Entities;
 using LDC.Domain.Interfaces.Repositories;
+using LDC.Domain.Interfaces.Services;
 using LDC.Domain.Resources;
 using LDC.Domain.ValueObjects;
 using prmToolkit.NotificationPattern;

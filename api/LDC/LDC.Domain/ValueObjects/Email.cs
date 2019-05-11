@@ -21,4 +21,3 @@ namespace LDC.Domain.ValueObjects
         public string Endereco { get; private set; }
     }
 }
-}

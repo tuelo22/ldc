@@ -5,7 +5,7 @@ using LDC.Domain.Interfaces.Services.Base;
 using System;
 using System.Collections.Generic;
 
-namespace LDC.Domain.Interfaces.Repositories
+namespace LDC.Domain.Interfaces.Services
 {
     public interface IServiceCategoria : IServiceBase
     {

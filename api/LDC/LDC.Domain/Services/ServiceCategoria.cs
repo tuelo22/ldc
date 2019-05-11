@@ -3,6 +3,7 @@ using LDC.Domain.Arguments.Categoria;
 using LDC.Domain.Arguments.Usuario;
 using LDC.Domain.Entities;
 using LDC.Domain.Interfaces.Repositories;
+using LDC.Domain.Interfaces.Services;
 using LDC.Domain.Resources;
 using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
@@ -12,7 +13,7 @@ using System.Linq;
 
 namespace LDC.Domain.Services
 {
-    class ServiceCategoria : Notifiable, IServiceCategoria
+    public class ServiceCategoria : Notifiable, IServiceCategoria
     {
         private readonly IRepositoryUsuario _repositoryUsuario;
 

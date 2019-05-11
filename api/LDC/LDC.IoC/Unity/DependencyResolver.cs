@@ -24,7 +24,7 @@ namespace LDC.IoC.Unity
             //Serviço de Domain
             //container.RegisterType(typeof(IServiceBase<,>), typeof(ServiceBase<,>));
 
-            container.RegisterType<IServiceCategoria, IServiceCategoria>(new HierarchicalLifetimeManager());
+            container.RegisterType<IServiceCategoria, ServiceCategoria>(new HierarchicalLifetimeManager());
             container.RegisterType<IServiceUsuario, ServiceUsuario>(new HierarchicalLifetimeManager());
 
             //Repository

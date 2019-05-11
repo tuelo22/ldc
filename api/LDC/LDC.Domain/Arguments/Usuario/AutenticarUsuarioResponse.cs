@@ -18,8 +18,7 @@ namespace LDC.Domain.Arguments.Usuario
             {
                 Id = entidade.Id,
                 Email = entidade.Email.Endereco,
-                PrimeiroNome = entidade.Nome.PrimeiroNome,
-                IMEI = entidade.IMEI,
+                PrimeiroNome = entidade.Nome.PrimeiroNome
             };
         }
     }

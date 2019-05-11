@@ -3,6 +3,7 @@ using LDC.Domain.Arguments.Unidade;
 using LDC.Domain.Arguments.Usuario;
 using LDC.Domain.Entities;
 using LDC.Domain.Interfaces.Repositories;
+using LDC.Domain.Interfaces.Services;
 using LDC.Domain.Resources;
 using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;

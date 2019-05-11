@@ -25,7 +25,7 @@ namespace LDC.Domain.Arguments.Lista
                 Criacao = entidade.Criacao,
                 Nome = entidade.Nome,
                 Ordenacao = (int)entidade.Ordenacao,
-                Usuario = (UsuarioResponse) entidade.Usuario,
+                Usuario = (UsuarioResponse) entidade.Proprietario,
                 Publica = entidade.Publica
             };
         }
