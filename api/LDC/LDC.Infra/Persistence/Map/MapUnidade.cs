@@ -16,8 +16,6 @@ namespace LDC.Infra.Persistence.Map
             Property(p => p.CasasDecimais).IsRequired().HasColumnName("CasasDecimais");
 
             HasRequired(p => p.Usuario);
-
-            HasMany(p => p.Produtos).WithOptional(p => p.Unidade);
         }
     }
 }

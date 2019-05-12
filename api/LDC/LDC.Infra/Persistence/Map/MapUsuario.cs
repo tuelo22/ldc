@@ -19,13 +19,6 @@ namespace LDC.Infra.Persistence.Map
             Property(p => p.Ativo).IsRequired().HasColumnName("Ativo");
             Property(p => p.Senha).IsRequired();
 
-            HasMany(p => p.Categorias).WithOptional(p => p.Usuario);
-            HasMany(p => p.Estabelecimentos).WithOptional(p => p.Usuario);
-            HasMany(p => p.Precos).WithOptional(p => p.Usuario);
-            HasMany(p => p.Produtos).WithOptional(p => p.Usuario);
-            HasMany(p => p.Unidades).WithOptional(p => p.Usuario);
-            HasMany(p => p.Items).WithOptional(p => p.Usuario);
-
             HasMany(p => p.Listas).WithMany(x => x.Usuarios).Map(x => x.ToTable("UsuarioLista"));
         }
     }

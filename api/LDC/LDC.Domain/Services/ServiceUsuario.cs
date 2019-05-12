@@ -94,7 +94,7 @@ namespace LDC.Domain.Services
         {
             if (request == null)
             {
-                AddNotification("AutenticarUsuarioRequeste", Message.X0_E_OBRIGATORIO.ToFormat("AutenticarUsuarioRequeste"));
+                AddNotification("AutenticarUsuarioRequest", Message.X0_E_OBRIGATORIO.ToFormat("AutenticarUsuarioRequest"));
 
                 return null;
             }
@@ -112,6 +112,11 @@ namespace LDC.Domain.Services
             }
 
             usuario = _repositoryUsuario.ObterPor(x => x.Email.Endereco == usuario.Email.Endereco && x.Senha == usuario.Senha && usuario.Ativo);
+
+            if (usuario == null)
+            {
+                return null;
+            }
 
             return (AutenticarUsuarioResponse)usuario;
         }

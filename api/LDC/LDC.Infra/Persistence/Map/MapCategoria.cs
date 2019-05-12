@@ -15,8 +15,6 @@ namespace LDC.Infra.Persistence.Map
             Property(p => p.Cor).HasMaxLength(50).IsRequired().HasColumnName("Cor");
 
             HasRequired(p => p.Usuario);
-
-            HasMany(p => p.Produtos).WithOptional(p => p.Categoria);
         }
     }
 }

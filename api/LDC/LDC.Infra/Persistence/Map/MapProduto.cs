@@ -12,10 +12,6 @@ namespace LDC.Infra.Persistence.Map
             HasKey(p => p.Id);
 
             Property(p => p.Nome).HasMaxLength(50).IsRequired().HasColumnName("Nome");
-
-            HasRequired(p => p.Usuario);
-            HasRequired(p => p.Categoria);
-            HasRequired(p => p.Unidade);
         }
     }
 }

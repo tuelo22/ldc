@@ -20,8 +20,6 @@ namespace LDC.Infra.Persistence.Map
 
             HasRequired(p => p.Proprietario);
 
-            HasMany(p => p.Items).WithOptional(p => p.Lista);
-
             HasMany(p => p.Usuarios).WithMany(x => x.Listas).Map(x => x.ToTable("UsuarioLista"));
 
         }

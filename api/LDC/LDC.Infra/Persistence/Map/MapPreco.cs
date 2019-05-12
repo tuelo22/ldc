@@ -12,10 +12,6 @@ namespace LDC.Infra.Persistence.Map
             HasKey(p => p.Id);
 
             Property(p => p.Valor).IsRequired().HasColumnName("Valor");
-
-            HasRequired(p => p.Estabelecimento);
-            HasRequired(p => p.Usuario);
-            HasRequired(p => p.Item);
         }
     }
 }

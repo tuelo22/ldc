@@ -49,11 +49,6 @@ namespace LDC.Domain.Entities
 
             Valida();
 
-            if (IsInvalid())
-            {
-                Senha = Senha.ConvertToMD5();
-            }
-
             InicializaListas();
         }
 
@@ -64,11 +59,6 @@ namespace LDC.Domain.Entities
             Senha = senha;
 
             Valida();
-
-            if (IsValid())
-            {
-                Senha = Senha.ConvertToMD5();
-            }
 
             InicializaListas();
         }
@@ -95,10 +85,20 @@ namespace LDC.Domain.Entities
 
         protected override void Valida()
         {
-            AddNotifications(Nome, Email);
+            if (Nome != null)
+            {
+                AddNotifications(Nome);
+            }
+
+            AddNotifications(Email);
 
             new AddNotifications<Usuario>(this)
                 .IfNullOrInvalidLength(x => x.Senha, 6, 32, Message.X0_OBRIGATORIO_E_DEVE_CONTER_ENTRE_X1_E_X2_CARACTERES.ToFormat("Senha", "6", "32"));
+
+            if (IsValid())
+            {
+                Senha = Senha.ConvertToMD5();
+            }
         }
     }
 }

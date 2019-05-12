@@ -1,4 +1,5 @@
 ﻿using LDC.Domain.Entities;
+using System;
 using System.Data.Entity.ModelConfiguration;
 
 namespace LDC.Infra.Persistence.Map
@@ -21,10 +22,6 @@ namespace LDC.Infra.Persistence.Map
             Property(p => p.Endereco.CEP).HasMaxLength(12).IsRequired().HasColumnName("Cep");
             Property(p => p.Longitude).HasMaxLength(40).IsRequired().HasColumnName("Longitude");
             Property(p => p.Latitude).HasMaxLength(40).IsRequired().HasColumnName("Latitude");
-
-            HasRequired(p => p.Usuario);
-
-            HasMany(p => p.Precos).WithOptional(p => p.Estabelecimento);
         }
     }
 }

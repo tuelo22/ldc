@@ -1,7 +1,7 @@
 ﻿using LDC.Domain.Entities;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using MySql.Data.Entity;
+using MySql.Data.EntityFramework;
 
 namespace LDC.Infra.Persistence
 {

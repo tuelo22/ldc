@@ -15,9 +15,6 @@ namespace LDC.Infra.Persistence.Map
 
             HasRequired(p => p.Lista);
             HasRequired(p => p.Produto);
-            HasRequired(p => p.Usuario);
-
-            HasMany(p => p.Precos).WithOptional(p => p.Item);
         }
     }
 }
