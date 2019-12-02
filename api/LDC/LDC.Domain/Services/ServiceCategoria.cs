@@ -29,7 +29,7 @@ namespace LDC.Domain.Services
         {
             if (request == null)
             {
-                AddNotification("AdicionarUnidadeRequest", Message.X0_E_OBRIGATORIO.ToFormat("AdicionarUnidadeRequest"));
+                AddNotification("AdicionarCategoriaRequest", Message.X0_E_OBRIGATORIO.ToFormat("AdicionarCategoriaRequest"));
 
                 return null;
             }
