@@ -9,7 +9,6 @@ using LDC.Domain.Interfaces.Repositories;
 using LDC.Domain.Interfaces.Services;
 using LDC.Infra.Transactions;
 
-
 namespace LDC.Api.Controllers
 {
     [RoutePrefix("api/Unidade")]

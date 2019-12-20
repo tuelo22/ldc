@@ -13,9 +13,17 @@ namespace LDC.Domain.Arguments.Lista
 
         public int Ordenacao { get; set; }
 
-        public UsuarioResponse Usuario { get; set; }
-
         public bool Publica { get; set; }
+
+        public Guid UsuarioId { get; set; }
+
+        public double ValorTotal { get; set; }
+
+        public double ValorComprado { get; set; }
+
+        public int QuantidadeItens { get; set; }
+
+        public int QuantidadeComprada { get; set; }
 
         public static explicit operator ListaResponse(Entities.Lista entidade)
         {
@@ -25,8 +33,12 @@ namespace LDC.Domain.Arguments.Lista
                 Criacao = entidade.Criacao,
                 Nome = entidade.Nome,
                 Ordenacao = (int)entidade.Ordenacao,
-                Usuario = (UsuarioResponse) entidade.Proprietario,
-                Publica = entidade.Publica
+                Publica = entidade.Publica,
+                UsuarioId = entidade.UsuarioId,
+                ValorComprado = 0,
+                ValorTotal = 0,
+                QuantidadeItens = 0,
+                QuantidadeComprada = 0
             };
         }
     }

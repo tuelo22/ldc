@@ -1,0 +1,1 @@
+export const LDC_API = 'http://localhost:64504/api'

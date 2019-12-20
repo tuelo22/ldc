@@ -1,0 +1,12 @@
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let lista of Listas">
+      <ion-label>
+        <h2>{{lista.nome}}</h2>
+        <p>{{lista.criacao | date:"dd/MM/yyyy"}} - [ {{lista.quantidadeComprada}} | {{lista.quantidadeItens}} ]</p>
+        <ion-progress-bar value="0.75"></ion-progress-bar>
+      </ion-label>
+      <ion-note slot="end">
+          {{lista.valorTotal| currency: 'BRL': true}}
+       </ion-note>  
+    </ion-item>

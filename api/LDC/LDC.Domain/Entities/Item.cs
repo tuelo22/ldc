@@ -38,6 +38,9 @@ namespace LDC.Domain.Entities
             this.Pendente = true;
             this.Usuario = usuario;
             this.Lista = lista;
+            this.ListaId = lista.Id;
+            this.ProdutoId = produto.Id;
+            this.UsuarioId = Usuario.Id;
 
             Valida();
         }

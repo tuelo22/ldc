@@ -179,6 +179,7 @@
       <DependentUpon>Message.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\ServiceCategoria.cs" />
+    <Compile Include="Services\ServiceLista.cs" />
     <Compile Include="Services\ServiceUnidade.cs" />
     <Compile Include="Services\ServiceUsuario.cs" />
     <Compile Include="ValueObjects\Email.cs" />

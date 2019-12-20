@@ -1,7 +1,4 @@
-﻿using LDC.Domain.Arguments.Lista;
-using LDC.Domain.Arguments.Produto;
-using LDC.Domain.Arguments.Usuario;
-using System;
+﻿using System;
 
 namespace LDC.Domain.Arguments.Item
 {
@@ -9,11 +6,9 @@ namespace LDC.Domain.Arguments.Item
     {
         public Guid Id { get; set; }
 
-        public ListaRequest Lista { get; private set; }
+        public Guid IdProduto { get; private set; }
 
-        public ProdutoRequest Produto { get; private set; }
-
-        public UsuarioRequest Usuario { get; private set; }
+        public Guid IdUsuario { get; private set; }
 
     }
 }

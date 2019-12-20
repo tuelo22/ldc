@@ -35,18 +35,18 @@ namespace LDC.Domain.Entities
             Items = new List<Item>();
         }
 
-        public Lista(DateTime criacao, string nome, Usuario usuario, List<Item> items, bool publica)
+        public Lista(DateTime criacao, string nome, Usuario usuario, bool publica)
         {
             this.Items = new List<Item>();
             this.Usuarios = new List<Usuario>();
 
             this.Usuarios.Add(usuario);
+            this.UsuarioId = usuario.Id;
 
             this.Criacao = criacao;
             this.Nome = nome;
             this.Ordenacao = EnumOrdenacao.Criacao;
             this.Proprietario = usuario;
-            this.Items = items;
             this.Compartilhada = false;
             this.PermiteOutrosEditarem = false;
             this.Publica = publica;
@@ -68,20 +68,17 @@ namespace LDC.Domain.Entities
             }
         }
 
-        public void Alterar(DateTime criacao, string nome, Usuario proprietario, List<Item> items, bool publica, bool compartilhada, bool permiteOutrosEditarem)
+        public void Alterar(DateTime criacao, string nome, Usuario proprietario, bool publica)
         {
             if (proprietario != null)
             {
-                new AddNotifications<Lista>(this).IfFalse(Proprietario.Id.Equals(proprietario.Id) || (compartilhada && permiteOutrosEditarem), Message.NAO_E_POSSIVEL_EDITAR_PERTENCE_OUTRO_USUARIO.ToFormat(nome));
+                new AddNotifications<Lista>(this).IfFalse(Proprietario.Id.Equals(proprietario.Id) || (Compartilhada && PermiteOutrosEditarem), Message.NAO_E_POSSIVEL_EDITAR_PERTENCE_OUTRO_USUARIO.ToFormat(nome));
             }
 
             this.Criacao = criacao;
             this.Nome = nome;
             this.Ordenacao = EnumOrdenacao.Criacao;
             this.Proprietario = proprietario;
-            this.Items = items;
-            this.Compartilhada = compartilhada;
-            this.PermiteOutrosEditarem = permiteOutrosEditarem;
             this.Publica = publica;
 
             Valida();

@@ -12,8 +12,8 @@ namespace LDC.Domain.Interfaces.Services
 
         ResponseBase Alterar(AlterarListaRequest request);
 
-        IEnumerable<ListaResponse> Listar();
+        IEnumerable<ListaResponse> Listar(Guid IdUsuario);
 
-        ResponseBase Desativar(Guid Id);
+        ResponseBase Desativar(Guid Id, Guid IdUsuario);
     }
 }

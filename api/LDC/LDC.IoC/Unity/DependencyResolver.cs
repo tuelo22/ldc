@@ -26,12 +26,16 @@ namespace LDC.IoC.Unity
 
             container.RegisterType<IServiceCategoria, ServiceCategoria>(new HierarchicalLifetimeManager());
             container.RegisterType<IServiceUsuario, ServiceUsuario>(new HierarchicalLifetimeManager());
+            container.RegisterType<IServiceLista, ServiceLista>(new HierarchicalLifetimeManager());
 
             //Repository
             container.RegisterType(typeof(IRepositoryBase<,>), typeof(RepositoryBase<,>));
 
             container.RegisterType<IRepositoryCategoria, RepositoryCategoria>(new HierarchicalLifetimeManager());
             container.RegisterType<IRepositoryUsuario, RepositoryUsuario>(new HierarchicalLifetimeManager());
+            container.RegisterType<IRepositoryProduto, RepositoryProduto>(new HierarchicalLifetimeManager());
+            container.RegisterType<IRepositoryItem, RepositoryItem>(new HierarchicalLifetimeManager());
+            container.RegisterType<IRepositoryLista, RepositoryLista>(new HierarchicalLifetimeManager());
         }
     }
 }

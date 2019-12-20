@@ -1,5 +1,4 @@
-﻿using LDC.Domain.Arguments.Usuario;
-using System;
+﻿using System;
 
 namespace LDC.Domain.Arguments.Lista
 {
@@ -13,7 +12,7 @@ namespace LDC.Domain.Arguments.Lista
 
         public int Ordenacao { get; private set; }
 
-        public UsuarioRequest Usuario { get; private set; }
+        public Guid IdUsuario { get; private set; }
 
         public bool Publica { get; private set; }
     }

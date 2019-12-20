@@ -1,13 +1,12 @@
-﻿using System;
+﻿using LDC.Api.Controllers.Base;
+using LDC.Domain.Arguments.Categoria;
+using LDC.Domain.Arguments.Usuario;
+using LDC.Domain.Interfaces.Services;
+using LDC.Infra.Transactions;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using LDC.Api.Controllers.Base;
-using LDC.Domain.Arguments.Categoria;
-using LDC.Domain.Arguments.Usuario;
-using LDC.Domain.Interfaces.Repositories;
-using LDC.Domain.Interfaces.Services;
-using LDC.Infra.Transactions;
 
 
 namespace LDC.Api.Controllers

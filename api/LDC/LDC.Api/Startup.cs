@@ -28,7 +28,7 @@ namespace LDC.Api
             config.DependencyResolver = new UnityResolver(container);
 
             ConfigureWebApi(config);
-            ConfigureOAuth(app, container);
+          //  ConfigureOAuth(app, container);
 
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
 
