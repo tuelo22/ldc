@@ -17,5 +17,7 @@ namespace LDC.Domain.Interfaces.Services
         IEnumerable<UsuarioResponse> Listar();
 
         ResponseBase Desativar(Guid Id);
+
+        AdicionarUsuarioResponse AdicionarUsuarioTemporario();
     }
 }

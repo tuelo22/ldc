@@ -7,7 +7,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-
 namespace LDC.Api.Controllers
 {
     [RoutePrefix("api/usuario")]
@@ -21,6 +20,7 @@ namespace LDC.Api.Controllers
             _serviceUsuario = serviceUsuario;
         }
 
+        [Authorize]
         [Route("Alterar")]
         [HttpPut]
         public async Task<HttpResponseMessage> Alterar(AlterarUsuarioRequest request)
@@ -52,7 +52,24 @@ namespace LDC.Api.Controllers
                 return await ResponseExceptionAsync(ex);
             }
         }
-  
+
+        [Route("AddTemp")]
+        [HttpPost]
+        public async Task<HttpResponseMessage> AdicionarUsuarioTemporario()
+        {
+            try
+            {
+                var response = _serviceUsuario.AdicionarUsuarioTemporario();
+
+                return await ResponseAsync(response, _serviceUsuario);
+            }
+            catch (Exception ex)
+            {
+                return await ResponseExceptionAsync(ex);
+            }
+        }
+
+        [Authorize]
         [Route("Listar")]
         [HttpGet]
         public async Task<HttpResponseMessage> Listar()
@@ -69,6 +86,7 @@ namespace LDC.Api.Controllers
             }
         }
 
+        [Authorize]
         [Route("Excluir")]
         [HttpDelete]
         public async Task<HttpResponseMessage> Excluir(Guid id)

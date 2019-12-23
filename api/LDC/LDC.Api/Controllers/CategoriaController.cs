@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace LDC.Api.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/categoria")]
     public class CategoriaController : ControllerBase
     {

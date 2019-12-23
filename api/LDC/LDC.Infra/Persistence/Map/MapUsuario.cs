@@ -18,6 +18,8 @@ namespace LDC.Infra.Persistence.Map
             Property(p => p.Nome.UltimoNome).HasMaxLength(50).IsRequired().HasColumnName("UltimoNome");
             Property(p => p.Ativo).IsRequired().HasColumnName("Ativo");
             Property(p => p.Senha).IsRequired();
+            Property(p => p.Temporario).IsRequired();
+            Property(p => p.DataCadastro).IsRequired();
 
             HasMany(p => p.ListasRelacionadas).WithMany(x => x.Usuarios).Map(x => x.ToTable("UsuarioLista"));
         }

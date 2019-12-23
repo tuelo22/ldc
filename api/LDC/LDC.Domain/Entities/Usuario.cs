@@ -4,20 +4,25 @@ using LDC.Domain.Resources;
 using LDC.Domain.ValueObjects;
 using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
+using System;
 using System.Collections.Generic;
 
 namespace LDC.Domain.Entities
 {
     public class Usuario : EntityBase
-    {  
+    {
         public Nome Nome { get; private set; }
 
         public string Senha { get; private set; }
 
         public Email Email { get; private set; }
 
-        #region Listas
-        public virtual ICollection<Categoria> Categorias { get; set; }
+        public bool Temporario { get; private set; }
+
+        public DateTime DataCadastro { get; private set; }
+
+    #region Listas
+    public virtual ICollection<Categoria> Categorias { get; set; }
         public virtual ICollection<Unidade> Unidades { get; set; }
         public virtual ICollection<Estabelecimento> Estabelecimentos { get; set; }
         public virtual ICollection<Lista> Listas { get; set; }
@@ -52,6 +57,12 @@ namespace LDC.Domain.Entities
             Valida();
 
             InicializaListas();
+        }
+
+        public Usuario(Guid id)
+        {
+            Email = new Email(id.ToString());
+            Nome = new Nome(id.ToString(), id.ToString());
         }
 
         public Usuario(Nome nome, Email email, string senha)

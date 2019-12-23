@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace LDC.Api.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/lista")]
     public class ListaController : ControllerBase
     {

@@ -53,6 +53,27 @@ namespace LDC.Domain.Services
 
         }
 
+        public AdicionarUsuarioResponse AdicionarUsuarioTemporario()
+        {
+            var usuario = new Usuario(Guid.NewGuid());
+
+            AddNotifications(usuario);
+
+            if (_repositoryUsuario.Existe(x => x.Email.Endereco == usuario.Email.Endereco))
+            {
+                AddNotification("E-mail", Message.JA_EXISTE_UMA_X0_CHAMADA_X1.ToFormat("e-mail", usuario.Email.Endereco));
+            }
+
+            if (this.IsInvalid())
+            {
+                return null;
+            }
+
+            usuario = _repositoryUsuario.Adicionar(usuario);
+
+            return (AdicionarUsuarioResponse)usuario;
+        }
+
         public ResponseBase Alterar(AlterarUsuarioRequest request)
         {
             if (request == null)

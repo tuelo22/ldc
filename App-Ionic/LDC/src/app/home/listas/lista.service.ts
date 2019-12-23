@@ -3,7 +3,7 @@ import { LDC_API } from './../../app.api';
 import { Injectable, ErrorHandler } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
-import { map, catchError } from "rxjs/operators"; 
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable()
 
@@ -11,11 +11,11 @@ export class ListaService {
     constructor(private http: HttpClient){}
 
     getlistas(user: string): Observable<Lista[]> {
-        let par = new HttpParams().set('IdUsuario', user)
-        
+        const par = new HttpParams().set('IdUsuario', user);
+
         return this.http.get<Lista[]>(`${LDC_API}/lista/Listar`, { params: par }).pipe(
             catchError(this.handleError)
-          );      
+          );
     }
 
     private handleError(error: HttpErrorResponse) {
@@ -28,5 +28,5 @@ export class ListaService {
         }
 
         return throwError('Alguma coisa ruim aconteceu. Por favor tente mais tarde.');
-      };
+      }
 }
