@@ -17,10 +17,14 @@ namespace LDC.Infra.Persistence.Map
             Property(p => p.Compartilhada).IsRequired().HasColumnName("Compartilhada");
             Property(p => p.Compartilhada).IsRequired().HasColumnName("PermiteOutrosEditarem");
             Property(p => p.Compartilhada).IsRequired().HasColumnName("Publica");
+            Property(p => p.ValorTotal).IsRequired().HasColumnName("ValorTotal"); 
+            Property(p => p.ValorComprado).IsRequired().HasColumnName("ValorComprado"); 
+            Property(p => p.QuantidadeItens).IsRequired().HasColumnName("QuantidadeItens");
+            Property(p => p.QuantidadeComprada).IsRequired().HasColumnName("QuantidadeComprada");
 
-            HasRequired(p => p.Proprietario);
+            HasRequired(p => p.Proprietario).WithMany(x => x.Listas).HasForeignKey(s => s.ProprietarioId);
 
-            HasMany(p => p.Usuarios).WithMany(x => x.Listas).Map(x => x.ToTable("UsuarioLista"));
+            HasMany(p => p.Usuarios).WithMany(x => x.ListasRelacionadas).Map(x => x.ToTable("UsuarioLista"));
 
         }
     }

@@ -19,7 +19,7 @@ namespace LDC.Infra.Persistence.Map
             Property(p => p.Ativo).IsRequired().HasColumnName("Ativo");
             Property(p => p.Senha).IsRequired();
 
-            HasMany(p => p.Listas).WithMany(x => x.Usuarios).Map(x => x.ToTable("UsuarioLista"));
+            HasMany(p => p.ListasRelacionadas).WithMany(x => x.Usuarios).Map(x => x.ToTable("UsuarioLista"));
         }
     }
 }

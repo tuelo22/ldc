@@ -22,7 +22,15 @@ namespace LDC.Domain.Entities
 
         public bool Publica { get; private set; }
 
-        public Guid UsuarioId { get; private set; }
+        public double ValorTotal { get; private set; }
+
+        public double ValorComprado { get; private set; }
+
+        public int QuantidadeItens { get; private set; }
+
+        public int QuantidadeComprada { get; private set; }
+
+        public Guid ProprietarioId { get; private set; }
 
         public virtual Usuario Proprietario { get; private set; }
 
@@ -33,6 +41,7 @@ namespace LDC.Domain.Entities
         protected Lista()
         {
             Items = new List<Item>();
+            Usuarios = new List<Usuario>();
         }
 
         public Lista(DateTime criacao, string nome, Usuario usuario, bool publica)
@@ -41,7 +50,7 @@ namespace LDC.Domain.Entities
             this.Usuarios = new List<Usuario>();
 
             this.Usuarios.Add(usuario);
-            this.UsuarioId = usuario.Id;
+            this.ProprietarioId = usuario.Id;
 
             this.Criacao = criacao;
             this.Nome = nome;
@@ -50,6 +59,10 @@ namespace LDC.Domain.Entities
             this.Compartilhada = false;
             this.PermiteOutrosEditarem = false;
             this.Publica = publica;
+            this.ValorTotal = 0;
+            this.ValorComprado = 0;
+            this.QuantidadeItens = 0;
+            this.QuantidadeComprada = 0;
 
             Valida();
         }
@@ -64,8 +77,16 @@ namespace LDC.Domain.Entities
 
             if (IsValid())
             {
-                this.UsuarioId = Proprietario.Id;
+                this.ProprietarioId = Proprietario.Id;
             }
+        }
+
+        public void AutalizaTotalizadores(double valorTotal, double valorComprado, int quantidadeItens, int quantidadeComprada)
+        {
+            this.ValorTotal = valorTotal;
+            this.ValorComprado = valorComprado;
+            this.QuantidadeItens = quantidadeItens;
+            this.QuantidadeComprada = quantidadeComprada;
         }
 
         public void Alterar(DateTime criacao, string nome, Usuario proprietario, bool publica)

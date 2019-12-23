@@ -1,4 +1,4 @@
-﻿namespace LDC.Infra.Migrations
+namespace LDC.Infra.Migrations
 {
     using System;
     using System.Data.Entity;

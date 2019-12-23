@@ -148,9 +148,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201905112358445_CriandoBanco.cs" />
-    <Compile Include="Migrations\201905112358445_CriandoBanco.Designer.cs">
-      <DependentUpon>201905112358445_CriandoBanco.cs</DependentUpon>
+    <Compile Include="Migrations\201912230206484_Inicio.cs" />
+    <Compile Include="Migrations\201912230206484_Inicio.Designer.cs">
+      <DependentUpon>201912230206484_Inicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\LDCContext.cs" />
@@ -188,8 +188,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905112358445_CriandoBanco.resx">
-      <DependentUpon>201905112358445_CriandoBanco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201912230206484_Inicio.resx">
+      <DependentUpon>201912230206484_Inicio.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

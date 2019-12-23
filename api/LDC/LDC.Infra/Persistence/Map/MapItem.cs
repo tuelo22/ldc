@@ -13,8 +13,9 @@ namespace LDC.Infra.Persistence.Map
 
             Property(p => p.Pendente).IsRequired().HasColumnName("Pendente");
 
-            HasRequired(p => p.Lista);
-            HasRequired(p => p.Produto);
+            HasRequired(p => p.Produto).WithMany(x => x.Items).HasForeignKey(s => s.ProdutoId);
+            HasRequired(p => p.Lista).WithMany(x => x.Items).HasForeignKey(s => s.ListaId);
+            HasRequired(p => p.Usuario).WithMany(x => x.Items).HasForeignKey(s => s.UsuarioId);
         }
     }
 }

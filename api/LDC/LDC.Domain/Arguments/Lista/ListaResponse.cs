@@ -34,11 +34,11 @@ namespace LDC.Domain.Arguments.Lista
                 Nome = entidade.Nome,
                 Ordenacao = (int)entidade.Ordenacao,
                 Publica = entidade.Publica,
-                UsuarioId = entidade.UsuarioId,
-                ValorComprado = 0,
-                ValorTotal = 0,
-                QuantidadeItens = 0,
-                QuantidadeComprada = 0
+                UsuarioId = entidade.ProprietarioId,
+                ValorComprado = entidade.ValorComprado,
+                ValorTotal = entidade.ValorTotal,
+                QuantidadeItens = entidade.QuantidadeItens,
+                QuantidadeComprada = entidade.QuantidadeComprada
             };
         }
     }

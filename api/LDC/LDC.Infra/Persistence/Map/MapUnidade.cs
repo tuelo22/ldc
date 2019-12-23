@@ -15,7 +15,7 @@ namespace LDC.Infra.Persistence.Map
             Property(p => p.Sigla).HasMaxLength(2).IsRequired().HasColumnName("Sigla");
             Property(p => p.CasasDecimais).IsRequired().HasColumnName("CasasDecimais");
 
-            HasRequired(p => p.Usuario);
+            HasRequired(p => p.Usuario).WithMany(x => x.Unidades).HasForeignKey(s => s.UsuarioId);
         }
     }
 }

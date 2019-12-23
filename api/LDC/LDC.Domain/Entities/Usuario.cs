@@ -21,6 +21,7 @@ namespace LDC.Domain.Entities
         public virtual ICollection<Unidade> Unidades { get; set; }
         public virtual ICollection<Estabelecimento> Estabelecimentos { get; set; }
         public virtual ICollection<Lista> Listas { get; set; }
+        public virtual ICollection<Lista> ListasRelacionadas { get; set; }
         public virtual ICollection<Preco> Precos { get; set; }
         public virtual ICollection<Item> Items { get; set; }
         public virtual ICollection<Produto> Produtos { get; set; }
@@ -32,6 +33,7 @@ namespace LDC.Domain.Entities
             Unidades = new List<Unidade>();
             Estabelecimentos = new List<Estabelecimento>();
             Listas = new List<Lista>();
+            ListasRelacionadas = new List<Lista>();
             Precos = new List<Preco>();
             Items = new List<Item>();
             Produtos = new List<Produto>();

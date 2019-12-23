@@ -3,6 +3,7 @@ using LDC.Domain.Resources;
 using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
 using System;
+using System.Collections.Generic;
 
 namespace LDC.Domain.Entities
 {
@@ -24,13 +25,16 @@ namespace LDC.Domain.Entities
 
         public virtual Usuario Usuario { get; private set; }
 
+        public virtual ICollection<Item> Items { get; private set; }
+
         protected Produto()
         {
-
+            this.Items = new List<Item>();
         }
 
         public Produto(string nome, Unidade unidade, Categoria categoria, Usuario usuario)
         {
+            this.Items = new List<Item>();
             this.Nome = nome;
             this.Unidade = unidade;
             this.Categoria = categoria;

@@ -7,13 +7,13 @@ namespace LDC.Infra.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class CriandoBanco : IMigrationMetadata
+    public sealed partial class Inicio : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CriandoBanco));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Inicio));
         
         string IMigrationMetadata.Id
         {
-            get { return "201905112358445_CriandoBanco"; }
+            get { return "201912230206484_Inicio"; }
         }
         
         string IMigrationMetadata.Source
