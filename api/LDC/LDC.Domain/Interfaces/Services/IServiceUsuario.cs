@@ -18,6 +18,6 @@ namespace LDC.Domain.Interfaces.Services
 
         ResponseBase Desativar(Guid Id);
 
-        AdicionarUsuarioResponse AdicionarUsuarioTemporario();
+        UsuarioResponse AdicionarUsuarioTemporario();
     }
 }

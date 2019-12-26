@@ -53,7 +53,7 @@ namespace LDC.Domain.Services
 
         }
 
-        public AdicionarUsuarioResponse AdicionarUsuarioTemporario()
+        public UsuarioResponse AdicionarUsuarioTemporario()
         {
             var usuario = new Usuario(Guid.NewGuid());
 
@@ -71,7 +71,7 @@ namespace LDC.Domain.Services
 
             usuario = _repositoryUsuario.Adicionar(usuario);
 
-            return (AdicionarUsuarioResponse)usuario;
+            return (UsuarioResponse)usuario;
         }
 
         public ResponseBase Alterar(AlterarUsuarioRequest request)

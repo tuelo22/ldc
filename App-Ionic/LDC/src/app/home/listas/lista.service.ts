@@ -1,14 +1,17 @@
 import { Lista } from './lista.model';
 import { LDC_API } from './../../app.api';
-import { Injectable, ErrorHandler } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
+import { BaseService } from '../base.service';
 
 @Injectable()
 
-export class ListaService {
-    constructor(private http: HttpClient){}
+export class ListaService extends BaseService {
+    constructor(private http: HttpClient){
+      super();
+    }
 
     getlistas(user: string): Observable<Lista[]> {
         const par = new HttpParams().set('IdUsuario', user);
@@ -17,16 +20,4 @@ export class ListaService {
             catchError(this.handleError)
           );
     }
-
-    private handleError(error: HttpErrorResponse) {
-        if (error.error instanceof ErrorEvent) {
-          console.error('An error occurred:', error.error.message);
-        } else {
-          console.error(
-            `Backend returned code ${error.status}, ` +
-            `body was: ${error.error}`);
-        }
-
-        return throwError('Alguma coisa ruim aconteceu. Por favor tente mais tarde.');
-      }
 }

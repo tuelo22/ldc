@@ -1,3 +1,5 @@
+import { Usuario } from './login/usuario.model';
+import { LoginService } from './login/login.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Component } from '@angular/core';
 import { UUID } from 'angular2-uuid';
@@ -8,23 +10,18 @@ import { UUID } from 'angular2-uuid';
 })
 export class HomePage {
 
-  user: string
+  user: Usuario;
+  idUsuario: string;
 
-  constructor(private cookieService: CookieService) {
-
-  }
+  constructor(private cookieService: CookieService, private loginService: LoginService) {}
 
   public ngOnInit(): void {
-    this.user = 'fd3a411c-6b9b-4073-bbe3-b14193c9c927'//this.cookieService.get('user_id');
+    this.idUsuario = this.cookieService.get('user_id');
 
-    if (this.user === null){
-      this.user = this.generateUUID();
-      this.cookieService.set('user_id', this.user);
+    if (this.idUsuario === null) {
+      this.loginService.createTempUser().subscribe(x => this.user = x);
+      this.idUsuario = this.user.id;
+      this.cookieService.set('user_id', this.idUsuario);
     }
   }
-
-  generateUUID(){
-    return UUID.UUID();
-  }
-
 }
